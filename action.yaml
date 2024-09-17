@@ -43,33 +43,19 @@ runs:
       run: |
         pip install "feu>=0.1.1"
 
-    - name: Check version
-      id: check-version
-      shell: bash
-      run: |
-        cmd="from feu.package import is_valid_version; res = is_valid_version(pkg_name='${PACKAGE_NAME}', pkg_version='${PACKAGE_VERSION}', python_version='${PYTHON_VERSION}'); print(f'is-valid-version={res}')"
-        python -c "${cmd}" >> $GITHUB_OUTPUT
-      env:
-        PACKAGE_NAME: ${{ inputs.package-name }}
-        PACKAGE_VERSION: ${{ inputs.package-version }}
-        PYTHON_VERSION: ${{ inputs.python-version }}
-
     - name: Find closest valid version
       id: find-version
       shell: bash
       run: |
-        cmd="from feu.package import find_closest_version; version = find_closest_version(pkg_name='${PACKAGE_NAME}', pkg_version='${PACKAGE_VERSION}', python_version='${PYTHON_VERSION}'); print(f'closest-valid-version={version}')"
-        python -c "${cmd}" >> $GITHUB_OUTPUT
+        VERSION=$(python -m feu find_closest_version --pkg-name=${PACKAGE_NAME} --pkg-version=${PACKAGE_VERSION} --python-version=${PYTHON_VERSION})
+        echo ${VERSION}
+        echo "closest-valid-version=${VERSION}" >> $GITHUB_OUTPUT
       env:
         PACKAGE_NAME: ${{ inputs.package-name }}
         PACKAGE_VERSION: ${{ inputs.package-version }}
         PYTHON_VERSION: ${{ inputs.python-version }}
 
-    - name: Print closest valid version
-      shell: bash
-      run: echo '${{ toJSON(outputs) }}'
-
-    - name: Install jax
-      shell: bash
-      run: |
-        python -m feu install --package=${{ inputs.package-name }} --version=${{ outputs.closest-valid-version }}
+#    - name: Install package
+#      shell: bash
+#      run: |
+#        python -m feu install --package=${{ inputs.package-name }} --version=${{ outputs.closest-valid-version }}

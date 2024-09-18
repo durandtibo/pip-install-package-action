@@ -1,6 +1,6 @@
 name: 'pip-install-valid-package'
 description: |
-  'Find the closest valid version given the package name and version,
+  'Find the closest valid version given the package name and target version,
   and python version, and install it by using pip'
 branding:
   icon: 'box'
@@ -11,7 +11,7 @@ inputs:
     description: 'The package name'
     required: true
   package-version:
-    description: 'The package version'
+    description: 'The package target version'
     required: true
   python-version:
     description: 'The python version'

@@ -1,0 +1,17 @@
+name: Nightly Tests
+on:
+  schedule:
+    - cron: '10 8 * * *' # run at 8:10 AM UTC
+  workflow_dispatch:  # to trigger manually
+
+jobs:
+  format:
+    uses: ./.github/workflows/format.yaml
+  pre-commit:
+    uses: ./.github/workflows/pre-commit.yaml
+  test:
+    uses: ./.github/workflows/test.yaml
+#  test-install:
+#    uses: ./.github/workflows/test-install.yaml
+  test-install-local:
+    uses: ./.github/workflows/test-install-local.yaml

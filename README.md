@@ -37,17 +37,12 @@ the latest release notes.
 ### Basic usage
 
 ```yaml
-  - name: Find valid package version
-    id: python-package-version
+  - name: Install valid package version
     uses: durandtibo/pip-install-package@v0.1.0
     with:
       package-name: 'numpy'
       package-version: 2.0.2
       python-version: 3.11
-
-  - name: Install package
-    run: |
-      pip install numpy==${{ steps.python-package-version.outputs.closest-valid-version }}
 ```
 
 ### Inputs

@@ -1,4 +1,4 @@
-name: 'pip-install-valid-package'
+name: 'pip-install-package'
 description: |
   'Find the closest valid version given the package name and target version,
   and python version, and install it by using pip'

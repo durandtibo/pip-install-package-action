@@ -50,7 +50,10 @@ runs:
         PACKAGE_VERSION: ${{ inputs.package-version }}
         PYTHON_VERSION: ${{ inputs.python-version }}
 
-#    - name: Install package
-#      shell: bash
-#      run: |
-#        python -m feu install --package=${{ inputs.package-name }} --version=${{ outputs.closest-valid-version }}
+    - name: Install package
+      shell: bash
+      run: |
+        python -m feu install --package=${PACKAGE_NAME} --version=${{ outputs.closest-valid-version }}
+      env:
+        PACKAGE_NAME: ${{ inputs.package-name }}
+        PACKAGE_VERSION: ${{ steps.find-version.outputs.closest-valid-version }}

@@ -13,7 +13,7 @@ jobs:
     uses: ./.github/workflows/format.yaml
   pre-commit:
     uses: ./.github/workflows/pre-commit.yaml
-#  test:
-#    uses: ./.github/workflows/test.yaml
+  test:
+    uses: ./.github/workflows/test.yaml
   test-install-local:
     uses: ./.github/workflows/test-install-local.yaml

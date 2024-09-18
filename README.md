@@ -76,4 +76,3 @@ We will reply to you as soon as possible. Thank you very much.
 `pip-install-package-action` is licensed under BSD 3-Clause "New" or "Revised" license available
 in [LICENSE](LICENSE)
 file.
-

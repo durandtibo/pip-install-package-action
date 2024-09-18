@@ -53,7 +53,7 @@ runs:
     - name: Install package
       shell: bash
       run: |
-        python -m feu install --package=${PACKAGE_NAME} --version=${{ outputs.closest-valid-version }}
+        python -m feu install --package=${PACKAGE_NAME} --version=${PACKAGE_VERSION}
       env:
         PACKAGE_NAME: ${{ inputs.package-name }}
         PACKAGE_VERSION: ${{ steps.find-version.outputs.closest-valid-version }}

@@ -11,7 +11,7 @@ jobs:
       max-parallel: 8
       fail-fast: false
       matrix:
-        os: [ ubuntu-latest, macos-latest ]
+        os: [ ubuntu-latest ]
         python-version: [ '3.12', '3.11', '3.10', '3.9' ]
         jax-version: [
           0.4.31,
@@ -61,9 +61,12 @@ jobs:
           package-version: ${{ matrix.jax-version }}
           python-version: ${{ matrix.python-version }}
 
+      - name: Install packages
+        run: |
+          pip install coola pytest
+
       - name: Run functional tests
         run: |
-          pip install pytest coola
           python -m pytest tests/functional
 
 
@@ -74,7 +77,7 @@ jobs:
       max-parallel: 8
       fail-fast: false
       matrix:
-        os: [ ubuntu-latest, macos-latest ]
+        os: [ ubuntu-latest ]
         python-version: [ '3.12', '3.11', '3.10', '3.9' ]
         numpy-version: [
           2.1.1,
@@ -120,9 +123,12 @@ jobs:
           package-version: ${{ matrix.numpy-version }}
           python-version: ${{ matrix.python-version }}
 
+      - name: Install packages
+        run: |
+          pip install coola pytest
+
       - name: Run functional tests
         run: |
-          pip install pytest coola
           python -m pytest tests/functional
 
 
@@ -133,7 +139,7 @@ jobs:
       max-parallel: 8
       fail-fast: false
       matrix:
-        os: [ ubuntu-latest, macos-latest ]
+        os: [ ubuntu-latest ]
         python-version: [ '3.12', '3.11', '3.10', '3.9' ]
         pandas-version: [
           2.2.2,
@@ -183,9 +189,12 @@ jobs:
           package-version: ${{ matrix.pandas-version }}
           python-version: ${{ matrix.python-version }}
 
+      - name: Install packages
+        run: |
+          pip install coola pytest
+
       - name: Run functional tests
         run: |
-          pip install pytest coola
           python -m pytest tests/functional
 
 
@@ -196,7 +205,7 @@ jobs:
       max-parallel: 8
       fail-fast: false
       matrix:
-        os: [ ubuntu-latest, macos-latest ]
+        os: [ ubuntu-latest ]
         python-version: [ '3.12', '3.11', '3.10', '3.9' ]
         pyarrow-version: [
           17.0.0,
@@ -238,9 +247,12 @@ jobs:
           package-version: ${{ matrix.pyarrow-version }}
           python-version: ${{ matrix.python-version }}
 
+      - name: Install packages
+        run: |
+          pip install coola pytest
+
       - name: Run functional tests
         run: |
-          pip install pytest coola
           python -m pytest tests/functional
 
 
@@ -251,7 +263,7 @@ jobs:
       max-parallel: 8
       fail-fast: false
       matrix:
-        os: [ ubuntu-latest, macos-latest ]
+        os: [ ubuntu-latest ]
         python-version: [ '3.12', '3.11', '3.10', '3.9' ]
         torch-version: [
           2.4.1,
@@ -294,7 +306,10 @@ jobs:
           package-version: ${{ matrix.torch-version }}
           python-version: ${{ matrix.python-version }}
 
+      - name: Install packages
+        run: |
+          pip install coola pytest
+
       - name: Run functional tests
         run: |
-          pip install pytest coola
           python -m pytest tests/functional

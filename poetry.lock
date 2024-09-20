@@ -328,21 +328,21 @@ test = ["pytest (>=6)"]
 
 [[package]]
 name = "feu"
-version = "0.1.1"
+version = "0.2.0"
 description = "A light library to help to manage packages"
 optional = false
 python-versions = "<3.13,>=3.9"
 files = [
-    {file = "feu-0.1.1-py3-none-any.whl", hash = "sha256:e3b29c2dffc3a26f8d29fa6232766f549c64d739e8b19cb2d209af7109601cce"},
-    {file = "feu-0.1.1.tar.gz", hash = "sha256:bdf6fca3d2580b09df06399912c896c9bc58dd8274e13c4db4b23f941ee3f8a4"},
+    {file = "feu-0.2.0-py3-none-any.whl", hash = "sha256:3908f0a4fdd973deaee818768f54d444615956568e5b6ea7edf21fd349e85f1b"},
+    {file = "feu-0.2.0.tar.gz", hash = "sha256:6522bd55323fd9caf44b7a90379beaf0f30f0e9f24ff37c0e848e369c02b8d80"},
 ]
 
 [package.dependencies]
 packaging = ">=21.0,<25.0"
 
 [package.extras]
-all = ["fire (>=0.6.0,<1.0)"]
-fire = ["fire (>=0.6.0,<1.0)"]
+all = ["click (>=8.1,<9.0)"]
+cli = ["click (>=8.1,<9.0)"]
 
 [[package]]
 name = "filelock"
@@ -1444,13 +1444,13 @@ files = [
 
 [[package]]
 name = "sympy"
-version = "1.13.2"
+version = "1.13.3"
 description = "Computer algebra system (CAS) in Python"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "sympy-1.13.2-py3-none-any.whl", hash = "sha256:c51d75517712f1aed280d4ce58506a4a88d635d6b5dd48b39102a7ae1f3fcfe9"},
-    {file = "sympy-1.13.2.tar.gz", hash = "sha256:401449d84d07be9d0c7a46a64bd54fe097667d5e7181bfe67ec777be9e01cb13"},
+    {file = "sympy-1.13.3-py3-none-any.whl", hash = "sha256:54612cf55a62755ee71824ce692986f23c88ffa77207b30c1368eda4a7060f73"},
+    {file = "sympy-1.13.3.tar.gz", hash = "sha256:b27fd2c6530e0ab39e275fc9b683895367e51d5da91baa8d3d64db2565fec4d9"},
 ]
 
 [package.dependencies]
@@ -1666,13 +1666,13 @@ files = [
 
 [[package]]
 name = "virtualenv"
-version = "20.26.4"
+version = "20.26.5"
 description = "Virtual Python Environment builder"
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "virtualenv-20.26.4-py3-none-any.whl", hash = "sha256:48f2695d9809277003f30776d155615ffc11328e6a0a8c1f0ec80188d7874a55"},
-    {file = "virtualenv-20.26.4.tar.gz", hash = "sha256:c17f4e0f3e6036e9f26700446f85c76ab11df65ff6d8a9cbfad9f71aabfcf23c"},
+    {file = "virtualenv-20.26.5-py3-none-any.whl", hash = "sha256:4f3ac17b81fba3ce3bd6f4ead2749a72da5929c01774948e243db9ba41df4ff6"},
+    {file = "virtualenv-20.26.5.tar.gz", hash = "sha256:ce489cac131aa58f4b25e321d6d186171f78e6cb13fafbf32a840cee67733ff4"},
 ]
 
 [package.dependencies]
@@ -1736,4 +1736,4 @@ all = []
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.9,<3.13"
-content-hash = "ace828d56c25daff51688efed5e9fdd9c747c928dfd23461d002ae545d72f9f9"
+content-hash = "b0037bd35dac4b9084ae9f962a320779ea32986f1ae95ddd29c470e484204214"

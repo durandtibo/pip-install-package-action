@@ -36,7 +36,7 @@ runs:
     - name: Install dependencies
       shell: bash
       run: |
-        pip install "feu[cli]>=0.2.1"
+        pip install "feu[cli]>=0.2.2"
 
     - name: Find closest valid version
       id: find-version

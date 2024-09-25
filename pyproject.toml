@@ -52,6 +52,7 @@ jax = ">=0.4.6,<1.0"
 numpy = ">=1.20,<3.0"
 pandas = ">=1.2.0,<3.0"
 pyarrow = ">=5.0.0"
+scikit-learn = ">=1.0,<2.0"
 torch = [
     # macOS x86_64 binaries do not exist after pytorch 2.2
     # https://dev-discuss.pytorch.org/t/pytorch-macos-x86-builds-deprecation-starting-january-2024/1690

@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "pip-install-package-action"
-version = "0.2.1"
+version = "0.2.3"
 description = "GitHub action to find a valid package version and install it"
 readme = "README.md"
 authors = ["Thibaut Durand <durand.tibo+gh@gmail.com>"]
@@ -50,8 +50,9 @@ xdoctest = "^1.2"
 # dependencies used for the functional tests
 jax = ">=0.4.6,<1.0"
 numpy = ">=1.20,<3.0"
-pandas = ">=1.2.0,<3.0"
-pyarrow = ">=5.0.0"
+pandas = ">=1.2,<3.0"
+pyarrow = ">=5.0"
+scipy = ">=1.6,<2.0"
 scikit-learn = ">=1.0,<2.0"
 torch = [
     # macOS x86_64 binaries do not exist after pytorch 2.2

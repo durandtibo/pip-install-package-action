@@ -328,13 +328,13 @@ test = ["pytest (>=6)"]
 
 [[package]]
 name = "feu"
-version = "0.2.2"
+version = "0.2.3"
 description = "A light library to help to manage packages"
 optional = false
 python-versions = "<3.13,>=3.9"
 files = [
-    {file = "feu-0.2.2-py3-none-any.whl", hash = "sha256:7bb4c758b2f053dbde31a5c083e69fc879549dc04f4fa9e8c38d11cba278dcdc"},
-    {file = "feu-0.2.2.tar.gz", hash = "sha256:c2c72f89024abaa2cb4691ce47e30df067333756572d68a247b9ce39b6eec9a8"},
+    {file = "feu-0.2.3-py3-none-any.whl", hash = "sha256:af4dca581b0e6c8299ee716e6d9136b3e989342220539543d53b7baad34ba506"},
+    {file = "feu-0.2.3.tar.gz", hash = "sha256:a46b855cce1abcd52e01a0c9e882cca454dbc76c4fd943e56cb47969d37ba2fb"},
 ]
 
 [package.dependencies]
@@ -937,21 +937,14 @@ files = [
 
 [[package]]
 name = "opt-einsum"
-version = "3.3.0"
-description = "Optimizing numpys einsum function"
+version = "3.4.0"
+description = "Path optimization of einsum functions."
 optional = false
-python-versions = ">=3.5"
+python-versions = ">=3.8"
 files = [
-    {file = "opt_einsum-3.3.0-py3-none-any.whl", hash = "sha256:2455e59e3947d3c275477df7f5205b30635e266fe6dc300e3d9f9646bfcea147"},
-    {file = "opt_einsum-3.3.0.tar.gz", hash = "sha256:59f6475f77bbc37dcf7cd748519c0ec60722e91e63ca114e68821c0c54a46549"},
+    {file = "opt_einsum-3.4.0-py3-none-any.whl", hash = "sha256:69bb92469f86a1565195ece4ac0323943e83477171b91d24c35afe028a90d7cd"},
+    {file = "opt_einsum-3.4.0.tar.gz", hash = "sha256:96ca72f1b886d148241348783498194c577fa30a8faac108586b14f1ba4473ac"},
 ]
-
-[package.dependencies]
-numpy = ">=1.7"
-
-[package.extras]
-docs = ["numpydoc", "sphinx (==1.2.3)", "sphinx-rtd-theme", "sphinxcontrib-napoleon"]
-tests = ["pytest", "pytest-cov", "pytest-pep8"]
 
 [[package]]
 name = "packaging"
@@ -1790,4 +1783,4 @@ all = []
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.9,<3.13"
-content-hash = "fde8d7f7e195c44162c404e9ade9000a863af038243d38379427482ce5332dfc"
+content-hash = "8fd041dcd186020911da5583fd9c689f097d31cd3ad1fdbdb93baad8f07f0cfb"

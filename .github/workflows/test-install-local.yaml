@@ -372,7 +372,7 @@ jobs:
       - name: Run functional tests
         run: |
           python -m pytest tests/functional
-          
+
 
   torch:
     runs-on: ${{ matrix.os }}

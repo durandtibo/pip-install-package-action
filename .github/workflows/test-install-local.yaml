@@ -69,10 +69,49 @@ jobs:
         run: |
           poetry env use system
           poetry env info
-          pip config list
-          pip config set global.target $HOME/.local/pip
-          pip config list
-#          poetry env use python${{ matrix.python-version }}
+
+      - name: Install valid package version
+        uses: ./
+        with:
+          package-name: 'torch'
+          package-version: ${{ matrix.package-version }}
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install packages
+        run: |
+          pip install coola pytest
+
+      - name: Run functional tests
+        run: |
+          python -m pytest tests/functional
+
+
+  three:
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 10
+    strategy:
+      max-parallel: 8
+      fail-fast: false
+      matrix:
+        os: [ ubuntu-latest ]
+        python-version: [ '3.12', '3.11', '3.10', '3.9' ]
+        package-version: [ 2.4.1 ]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: 'poetry'
+
+      - name: env info
+        run: |
+          poetry env info
+          poetry env use system
+          poetry env info
 
       - name: Install valid package version
         uses: ./

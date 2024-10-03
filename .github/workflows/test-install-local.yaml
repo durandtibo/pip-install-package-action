@@ -60,14 +60,15 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
 
+      - name: env info
+        run: |
+          which pip
+
       - name: Install Poetry
         uses: snok/install-poetry@v1
 
       - name: env info
         run: |
-          poetry env info
-          which pip
-          poetry env use system
           poetry env info
           which pip
 

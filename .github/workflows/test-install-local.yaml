@@ -114,7 +114,7 @@ jobs:
 
       - name: Activate virtualenv
         run: |
-          . $(poetry env info --path)/bin/activate
+          . "$(poetry env info --path)/bin/activate"
           echo PATH=$PATH >> $GITHUB_ENV
 
       - name: env info

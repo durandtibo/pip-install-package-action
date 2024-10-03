@@ -129,6 +129,10 @@ jobs:
 
       - name: Install packages
         run: |
+          pip install coola pytest --user
+
+      - name: Install packages
+        run: |
           poetry run pip install coola pytest
 
       - name: Run functional tests

@@ -16,6 +16,10 @@ inputs:
   python-version:
     description: 'The python version'
     required: true
+  install-prefix:
+    description: 'The prefix uses to run the install command'
+    required: false
+    default: ''
 outputs:
   closest-valid-version:
     description:
@@ -53,7 +57,8 @@ runs:
     - name: Install package
       shell: bash
       run: |
-        python -m feu install --pkg-name=${PACKAGE_NAME} --pkg-version=${PACKAGE_VERSION}
+        ${INSTALL_PREFIX}python -m feu install --pkg-name=${PACKAGE_NAME} --pkg-version=${PACKAGE_VERSION}
       env:
+        INSTALL_PREFIX: ${{ inputs.install-prefix }}
         PACKAGE_NAME: ${{ inputs.package-name }}
         PACKAGE_VERSION: ${{ steps.find-version.outputs.closest-valid-version }}

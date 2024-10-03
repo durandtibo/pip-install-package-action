@@ -136,7 +136,7 @@ jobs:
 
       - name: Install packages
         run: |
-          pip install coola pytest --user
+          python -m pip install coola pytest
 
       - name: Install packages
         run: |

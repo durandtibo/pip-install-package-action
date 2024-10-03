@@ -105,6 +105,7 @@ jobs:
 
       - name: Activate virtualenv
         run: |
+          python -m venv venv
           . .venv/bin/activate
           echo PATH=$PATH >> $GITHUB_ENV
 

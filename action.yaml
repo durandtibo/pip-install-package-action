@@ -28,9 +28,6 @@ runs:
     - name: Checkout
       uses: actions/checkout@v4
 
-    - name: Install Poetry
-      uses: snok/install-poetry@v1
-
     - name: Set up Python
       uses: actions/setup-python@v5
       with:
@@ -39,7 +36,7 @@ runs:
     - name: Install dependencies
       shell: bash
       run: |
-        poetry run pip install "feu[cli]>=0.2.3"
+        pip install "feu[cli]>=0.2.3"
 
     - name: Find closest valid version
       id: find-version
@@ -56,7 +53,7 @@ runs:
     - name: Install package
       shell: bash
       run: |
-        poetry run python -m feu install --pkg-name=${PACKAGE_NAME} --pkg-version=${PACKAGE_VERSION}
+        python -m feu install --pkg-name=${PACKAGE_NAME} --pkg-version=${PACKAGE_VERSION}
       env:
         PACKAGE_NAME: ${{ inputs.package-name }}
         PACKAGE_VERSION: ${{ steps.find-version.outputs.closest-valid-version }}

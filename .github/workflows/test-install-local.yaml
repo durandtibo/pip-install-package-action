@@ -38,7 +38,7 @@ jobs:
       - name: Run functional tests
         run: |
           python -m pytest tests/functional
-          
+
 
   two:
     runs-on: ${{ matrix.os }}
@@ -57,20 +57,22 @@ jobs:
 
       - name: Install Poetry
         uses: snok/install-poetry@v1
+        with:
+          virtualenvs-create: false
 
       - name: env info
         run: |
           poetry env use python${{ matrix.python-version }}
           poetry env info
 
-#      - name: Set up Python
-#        uses: actions/setup-python@v5
-#        with:
-#          python-version: ${{ matrix.python-version }}
-#
-#      - name: env info
-#        run: |
-#          poetry env info
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: env info
+        run: |
+          poetry env info
 
       - name: Install valid package version
         uses: ./

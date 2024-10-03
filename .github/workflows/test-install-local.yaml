@@ -103,12 +103,6 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
 
-      - name: Activate virtualenv
-        run: |
-          python -m venv venv
-          . .venv/bin/activate
-          echo PATH=$PATH >> $GITHUB_ENV
-
       - name: Install valid package version
         uses: ./
         with:

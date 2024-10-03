@@ -72,6 +72,8 @@ jobs:
           poetry env info
           which pip
           poetry run which pip
+          which python
+          poetry run which python
           poetry env info --path
 
       - name: Install valid package version

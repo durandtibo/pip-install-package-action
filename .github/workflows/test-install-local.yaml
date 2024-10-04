@@ -118,11 +118,14 @@ jobs:
         run: |
           . $(poetry run poetry env info --path)/bin/activate
           echo ${PATH}
+          which python
+          which pip
           echo PATH=$PATH >> $GITHUB_ENV
 
       - name: env info
         run: |
           poetry env info
+          which python
           which pip
 
       - name: Install valid package version

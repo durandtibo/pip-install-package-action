@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "pip-install-package-action"
-version = "0.2.3"
+version = "0.3.0"
 description = "GitHub action to find a valid package version and install it"
 readme = "README.md"
 authors = ["Thibaut Durand <durand.tibo+gh@gmail.com>"]

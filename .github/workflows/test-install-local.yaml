@@ -117,7 +117,9 @@ jobs:
       - name: Set environment variable
         run: |
           poetry env info --path
-          echo PATH=$(poetry env info --path)/bin:${PATH} >> $GITHUB_ENV
+          export PATH=$(poetry env info --path)/bin:${PATH}
+          echo ${PATH}
+          echo "PATH=${PATH}" >> $GITHUB_ENV
 
       - name: env info
         run: |

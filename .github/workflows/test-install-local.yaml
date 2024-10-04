@@ -125,7 +125,6 @@ jobs:
 
       - name: env info
         run: |
-          export $PATH
           poetry env info
           which python
           which pip

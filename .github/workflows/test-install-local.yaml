@@ -115,7 +115,9 @@ jobs:
         uses: snok/install-poetry@v1
 
       - name: Set environment variable
-        run: echo "PATH=$(poetry env info --path)/bin:${PATH}" >> $GITHUB_ENV
+        run: |
+          poetry env info --path
+          echo PATH=$(poetry env info --path)/bin:${PATH} >> $GITHUB_ENV
 
       - name: env info
         run: |

@@ -484,7 +484,7 @@ jobs:
           echo $(poetry run poetry env info --path)/bin >> $GITHUB_PATH
 
       - name: Install valid package version
-        uses: ./
+        uses: durandtibo/pip-install-package-action@v0.2.3
         with:
           package-name: 'torch'
           package-version: ${{ matrix.package-version }}

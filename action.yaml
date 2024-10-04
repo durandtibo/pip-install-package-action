@@ -25,22 +25,6 @@ outputs:
 runs:
   using: "composite"
   steps:
-    - name: Find poetry
-      id: find-poetry
-      shell: bash
-      run: | 
-        if [ -x "$(command -v poetry)" ]; then 
-          PREFIX="poetry run " 
-        else 
-          PREFIX="" 
-        fi
-        echo "cmd_prefix=${PREFIX}" >> $GITHUB_OUTPUT
-
-    - name: echo output
-      shell: bash
-      run: | 
-        echo ${{ steps.find-poetry.outputs.cmd_prefix }}
-
     - name: Install dependencies
       shell: bash
       run: |

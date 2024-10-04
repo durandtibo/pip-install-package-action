@@ -114,11 +114,8 @@ jobs:
       - name: Install Poetry
         uses: snok/install-poetry@v1
 
-#      - name: Activate virtualenv
-#        run: |
-#          poetry env info --path
-#          source $(poetry env info --path)/bin/activate
-#          echo PATH=$PATH >> $GITHUB_ENV
+      - name: Set environment variable
+        run: echo "PATH=$(poetry env info --path)/bin:${PATH}" >> $GITHUB_ENV
 
       - name: env info
         run: |

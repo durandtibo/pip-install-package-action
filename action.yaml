@@ -34,7 +34,8 @@ runs:
       id: find-version
       shell: bash
       run: |
-        VERSION=$(python -m feu find-closest-version --pkg-name=${PACKAGE_NAME} --pkg-version=${PACKAGE_VERSION} --python-version=${PYTHON_VERSION})
+        if [ -x "$(command -v poetry)" ]; then PREFIX="poetry run " else PREFIX="" fi
+        VERSION=$(${PREFIX}python -m feu find-closest-version --pkg-name=${PACKAGE_NAME} --pkg-version=${PACKAGE_VERSION} --python-version=${PYTHON_VERSION})
         echo ${VERSION}
         echo "closest-valid-version=${VERSION}" >> $GITHUB_OUTPUT
       env:
@@ -45,7 +46,8 @@ runs:
     - name: Install package
       shell: bash
       run: |
-        python -m feu install --pkg-name=${PACKAGE_NAME} --pkg-version=${PACKAGE_VERSION}
+        if [ -x "$(command -v poetry)" ]; then PREFIX="poetry run " else PREFIX="" fi
+        ${PREFIX}python -m feu install --pkg-name=${PACKAGE_NAME} --pkg-version=${PACKAGE_VERSION}
       env:
         PACKAGE_NAME: ${{ inputs.package-name }}
         PACKAGE_VERSION: ${{ steps.find-version.outputs.closest-valid-version }}

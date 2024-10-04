@@ -4,7 +4,7 @@ on:
   workflow_dispatch:  # to trigger manually
 
 jobs:
-  one:
+  jax:
     runs-on: ${{ matrix.os }}
     timeout-minutes: 10
     strategy:
@@ -13,7 +13,400 @@ jobs:
       matrix:
         os: [ ubuntu-latest ]
         python-version: [ '3.12', '3.11', '3.10', '3.9' ]
-        package-version: [ 2.4.1 ]
+        jax-version: [
+          0.4.31,
+          0.4.30,
+          0.4.29,
+          0.4.28,
+          0.4.27,
+          0.4.26,
+          0.4.25,
+          0.4.24,
+          0.4.23,
+          0.4.22,
+          0.4.21,
+          0.4.20,
+          0.4.19,
+          0.4.18,
+          0.4.17,
+          0.4.16,
+          0.4.14,
+          0.4.13,
+          0.4.12,
+          0.4.11,
+          0.4.10,
+          0.4.9,
+          0.4.7,
+          0.4.6,
+          0.4.5,
+          0.4.4,
+          0.4.3,
+          0.4.2,
+          0.4.1,
+        ]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install valid package version
+        uses: ./
+        with:
+          package-name: 'jax'
+          package-version: ${{ matrix.jax-version }}
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install packages
+        run: |
+          pip install coola pytest
+
+      - name: Run functional tests
+        run: |
+          python -m pytest tests/functional
+
+
+  numpy:
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 10
+    strategy:
+      max-parallel: 8
+      fail-fast: false
+      matrix:
+        os: [ ubuntu-latest ]
+        python-version: [ '3.12', '3.11', '3.10', '3.9' ]
+        numpy-version: [
+          2.1.1,
+          2.1.0,
+          2.0.2,
+          2.0.1,
+          2.0.0,
+          1.26.4,
+          1.26.3,
+          1.26.2,
+          1.26.1,
+          1.26.0,
+          1.25.2,
+          1.25.1,
+          1.25.0,
+          1.24.3,
+          1.24.2,
+          1.24.1,
+          1.24.0,
+          1.23.5,
+          1.23.0,
+          1.22.4,
+          1.22.0,
+          1.21.6,
+          1.21.0,
+          1.20.3,
+          1.20.0,
+        ]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install valid package version
+        uses: ./
+        with:
+          package-name: 'numpy'
+          package-version: ${{ matrix.numpy-version }}
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install packages
+        run: |
+          pip install coola pytest
+
+      - name: Run functional tests
+        run: |
+          python -m pytest tests/functional
+
+
+  pandas:
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 10
+    strategy:
+      max-parallel: 8
+      fail-fast: false
+      matrix:
+        os: [ ubuntu-latest ]
+        python-version: [ '3.12', '3.11', '3.10', '3.9' ]
+        pandas-version: [
+          2.2.3,
+          2.2.2,
+          2.2.1,
+          2.2.0,
+          2.1.4,
+          2.1.3,
+          2.1.2,
+          2.1.1,
+          2.1.0,
+          2.0.3,
+          2.0.2,
+          2.0.1,
+          2.0.0,
+          1.5.3,
+          1.5.2,
+          1.5.1,
+          1.5.0,
+          1.4.4,
+          1.4.3,
+          1.4.2,
+          1.4.1,
+          1.4.0,
+          1.3.5,
+          1.3.4,
+          1.3.3,
+          1.3.2,
+          1.3.1,
+          1.3.0,
+          1.2.5,
+          1.2.0,
+        ]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install valid package version
+        uses: ./
+        with:
+          package-name: 'pandas'
+          package-version: ${{ matrix.pandas-version }}
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install packages
+        run: |
+          pip install coola pytest
+
+      - name: Run functional tests
+        run: |
+          python -m pytest tests/functional
+
+
+  pyarrow:
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 10
+    strategy:
+      max-parallel: 8
+      fail-fast: false
+      matrix:
+        os: [ ubuntu-latest ]
+        python-version: [ '3.12', '3.11', '3.10', '3.9' ]
+        pyarrow-version: [
+          17.0.0,
+          16.1.0,
+          16.0.0,
+          15.0.2,
+          15.0.1,
+          15.0.0,
+          14.0.2,
+          14.0.1,
+          14.0.0,
+          13.0.0,
+          12.0.1,
+          12.0.0,
+          11.0.0,
+          10.0.1,
+          10.0.0,
+          9.0.0,
+          8.0.0,
+          7.0.0,
+          6.0.1,
+          6.0.0,
+          5.0.0,
+        ]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install valid package version
+        uses: ./
+        with:
+          package-name: 'pyarrow'
+          package-version: ${{ matrix.pyarrow-version }}
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install packages
+        run: |
+          pip install coola pytest
+
+      - name: Run functional tests
+        run: |
+          python -m pytest tests/functional
+
+
+  scikit-learn:
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 10
+    strategy:
+      max-parallel: 8
+      fail-fast: false
+      matrix:
+        os: [ ubuntu-latest ]
+        python-version: [ '3.12', '3.11', '3.10', '3.9' ]
+        scikit-learn-version: [
+          1.5.2,
+          1.5.1,
+          1.5.0,
+          1.4.2,
+          1.4.0,
+          1.3.2,
+          1.3.1,
+          1.3.0,
+          1.2.2,
+          1.2.1,
+          1.2.0,
+          1.1.3,
+          1.1.2,
+          1.1.1,
+          1.1.0,
+          1.0.2,
+          1.0.1,
+          1.0.0,
+        ]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install valid package version
+        uses: ./
+        with:
+          package-name: 'scikit-learn'
+          package-version: ${{ matrix.scikit-learn-version }}
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install packages
+        run: |
+          pip install coola pytest
+
+      - name: Run functional tests
+        run: |
+          python -m pytest tests/functional
+
+
+  scipy:
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 10
+    strategy:
+      max-parallel: 8
+      fail-fast: false
+      matrix:
+        os: [ ubuntu-latest ]
+        python-version: [ '3.12', '3.11', '3.10', '3.9' ]
+        scipy-version: [
+          1.14.1,
+          1.14.0,
+          1.13.1,
+          1.13.0,
+          1.12.0,
+          1.11.4,
+          1.11.3,
+          1.11.2,
+          1.11.1,
+          1.10.1,
+          1.10.0,
+          1.9.3,
+          1.9.2,
+          1.9.1,
+          1.9.0,
+          1.8.1,
+          1.8.0,
+          1.7.3,
+          1.7.2,
+          1.7.1,
+          1.7.0,
+          1.6.3,
+          1.6.2,
+          1.6.1,
+          1.6.0,
+        ]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install valid package version
+        uses: ./
+        with:
+          package-name: 'scipy'
+          package-version: ${{ matrix.scipy-version }}
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install packages
+        run: |
+          pip install coola pytest
+
+      - name: Run functional tests
+        run: |
+          python -m pytest tests/functional
+
+
+  torch:
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 10
+    strategy:
+      max-parallel: 8
+      fail-fast: false
+      matrix:
+        os: [ ubuntu-latest ]
+        python-version: [ '3.12', '3.11', '3.10', '3.9' ]
+        torch-version: [
+          2.4.1,
+          2.4.0,
+          2.3.1,
+          2.3.0,
+          2.2.2,
+          2.2.1,
+          2.2.0,
+          2.1.2,
+          2.1.1,
+          2.1.0,
+          2.0.1,
+          2.0.0,
+          1.13.1,
+          1.13.0,
+          1.12.1,
+          1.12.0,
+          1.11.0,
+          1.10.2,
+          1.10.1,
+          1.10.0,
+          1.9.1,
+          1.9.0,
+        ]
 
     steps:
       - name: Checkout
@@ -28,7 +421,7 @@ jobs:
         uses: ./
         with:
           package-name: 'torch'
-          package-version: ${{ matrix.package-version }}
+          package-version: ${{ matrix.torch-version }}
           python-version: ${{ matrix.python-version }}
 
       - name: Install packages
@@ -40,7 +433,7 @@ jobs:
           python -m pytest tests/functional
 
 
-  two:
+  torch-poetry:
     runs-on: ${{ matrix.os }}
     timeout-minutes: 10
     strategy:
@@ -49,58 +442,30 @@ jobs:
       matrix:
         os: [ ubuntu-latest ]
         python-version: [ '3.12', '3.11', '3.10', '3.9' ]
-        package-version: [ 2.4.1 ]
-
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: ${{ matrix.python-version }}
-
-      - name: env info
-        run: |
-          which pip
-
-      - name: Install Poetry
-        uses: snok/install-poetry@v1
-
-      - name: env info
-        run: |
-          poetry env info
-          which pip
-          poetry run which pip
-          which python
-          poetry run which python
-          poetry env info --path
-
-      - name: Install valid package version
-        uses: ./
-        with:
-          package-name: 'torch'
-          package-version: ${{ matrix.package-version }}
-          python-version: ${{ matrix.python-version }}
-
-      - name: Install packages
-        run: |
-          pip install coola pytest
-
-      - name: Run functional tests
-        run: |
-          python -m pytest tests/functional
-
-  three:
-    runs-on: ${{ matrix.os }}
-    timeout-minutes: 10
-    strategy:
-      max-parallel: 8
-      fail-fast: false
-      matrix:
-        os: [ ubuntu-latest ]
-        python-version: [ '3.12', '3.11', '3.10', '3.9' ]
-        package-version: [ 2.4.1 ]
+        torch-version: [
+          2.4.1,
+          2.4.0,
+          2.3.1,
+          2.3.0,
+          2.2.2,
+          2.2.1,
+          2.2.0,
+          2.1.2,
+          2.1.1,
+          2.1.0,
+          2.0.1,
+          2.0.0,
+          1.13.1,
+          1.13.0,
+          1.12.1,
+          1.12.0,
+          1.11.0,
+          1.10.2,
+          1.10.1,
+          1.10.0,
+          1.9.1,
+          1.9.0,
+        ]
 
     steps:
       - name: Checkout
@@ -117,18 +482,6 @@ jobs:
       - name: Set environment variable
         run: |
           echo $(poetry run poetry env info --path)/bin >> $GITHUB_PATH
-          echo ${PATH}
-#          . $(poetry run poetry env info --path)/bin/activate
-#          echo ${PATH}
-#          which python
-#          which pip
-#          echo PATH=$PATH >> $GITHUB_ENV
-
-      - name: env info
-        run: |
-          poetry env info
-          which python
-          which pip
 
       - name: Install valid package version
         uses: ./
@@ -141,505 +494,68 @@ jobs:
         run: |
           pip install coola pytest
 
-      - name: Install packages
-        run: |
-          python -m pip install coola pytest
-
-      - name: Install packages
-        run: |
-          poetry run pip install coola pytest
-
       - name: Run functional tests
         run: |
           python -m pytest tests/functional
 
 
-#  jax:
-#    runs-on: ${{ matrix.os }}
-#    timeout-minutes: 10
-#    strategy:
-#      max-parallel: 8
-#      fail-fast: false
-#      matrix:
-#        os: [ ubuntu-latest ]
-#        python-version: [ '3.12', '3.11', '3.10', '3.9' ]
-#        jax-version: [
-#          0.4.31,
-#          0.4.30,
-#          0.4.29,
-#          0.4.28,
-#          0.4.27,
-#          0.4.26,
-#          0.4.25,
-#          0.4.24,
-#          0.4.23,
-#          0.4.22,
-#          0.4.21,
-#          0.4.20,
-#          0.4.19,
-#          0.4.18,
-#          0.4.17,
-#          0.4.16,
-#          0.4.14,
-#          0.4.13,
-#          0.4.12,
-#          0.4.11,
-#          0.4.10,
-#          0.4.9,
-#          0.4.7,
-#          0.4.6,
-#          0.4.5,
-#          0.4.4,
-#          0.4.3,
-#          0.4.2,
-#          0.4.1,
-#        ]
-#
-#    steps:
-#      - name: Checkout
-#        uses: actions/checkout@v4
-#
-#      - name: Set up Python
-#        uses: actions/setup-python@v5
-#        with:
-#          python-version: ${{ matrix.python-version }}
-#
-#      - name: Install valid package version
-#        uses: ./
-#        with:
-#          package-name: 'jax'
-#          package-version: ${{ matrix.jax-version }}
-#          python-version: ${{ matrix.python-version }}
-#
-#      - name: Install packages
-#        run: |
-#          pip install coola pytest
-#
-#      - name: Run functional tests
-#        run: |
-#          python -m pytest tests/functional
-#
-#
-#  numpy:
-#    runs-on: ${{ matrix.os }}
-#    timeout-minutes: 10
-#    strategy:
-#      max-parallel: 8
-#      fail-fast: false
-#      matrix:
-#        os: [ ubuntu-latest ]
-#        python-version: [ '3.12', '3.11', '3.10', '3.9' ]
-#        numpy-version: [
-#          2.1.1,
-#          2.1.0,
-#          2.0.2,
-#          2.0.1,
-#          2.0.0,
-#          1.26.4,
-#          1.26.3,
-#          1.26.2,
-#          1.26.1,
-#          1.26.0,
-#          1.25.2,
-#          1.25.1,
-#          1.25.0,
-#          1.24.3,
-#          1.24.2,
-#          1.24.1,
-#          1.24.0,
-#          1.23.5,
-#          1.23.0,
-#          1.22.4,
-#          1.22.0,
-#          1.21.6,
-#          1.21.0,
-#          1.20.3,
-#          1.20.0,
-#        ]
-#
-#    steps:
-#      - name: Checkout
-#        uses: actions/checkout@v4
-#
-#      - name: Set up Python
-#        uses: actions/setup-python@v5
-#        with:
-#          python-version: ${{ matrix.python-version }}
-#
-#      - name: Install valid package version
-#        uses: ./
-#        with:
-#          package-name: 'numpy'
-#          package-version: ${{ matrix.numpy-version }}
-#          python-version: ${{ matrix.python-version }}
-#
-#      - name: Install packages
-#        run: |
-#          pip install coola pytest
-#
-#      - name: Run functional tests
-#        run: |
-#          python -m pytest tests/functional
-#
-#
-#  pandas:
-#    runs-on: ${{ matrix.os }}
-#    timeout-minutes: 10
-#    strategy:
-#      max-parallel: 8
-#      fail-fast: false
-#      matrix:
-#        os: [ ubuntu-latest ]
-#        python-version: [ '3.12', '3.11', '3.10', '3.9' ]
-#        pandas-version: [
-#          2.2.3,
-#          2.2.2,
-#          2.2.1,
-#          2.2.0,
-#          2.1.4,
-#          2.1.3,
-#          2.1.2,
-#          2.1.1,
-#          2.1.0,
-#          2.0.3,
-#          2.0.2,
-#          2.0.1,
-#          2.0.0,
-#          1.5.3,
-#          1.5.2,
-#          1.5.1,
-#          1.5.0,
-#          1.4.4,
-#          1.4.3,
-#          1.4.2,
-#          1.4.1,
-#          1.4.0,
-#          1.3.5,
-#          1.3.4,
-#          1.3.3,
-#          1.3.2,
-#          1.3.1,
-#          1.3.0,
-#          1.2.5,
-#          1.2.0,
-#        ]
-#
-#    steps:
-#      - name: Checkout
-#        uses: actions/checkout@v4
-#
-#      - name: Set up Python
-#        uses: actions/setup-python@v5
-#        with:
-#          python-version: ${{ matrix.python-version }}
-#
-#      - name: Install valid package version
-#        uses: ./
-#        with:
-#          package-name: 'pandas'
-#          package-version: ${{ matrix.pandas-version }}
-#          python-version: ${{ matrix.python-version }}
-#
-#      - name: Install packages
-#        run: |
-#          pip install coola pytest
-#
-#      - name: Run functional tests
-#        run: |
-#          python -m pytest tests/functional
-#
-#
-#  pyarrow:
-#    runs-on: ${{ matrix.os }}
-#    timeout-minutes: 10
-#    strategy:
-#      max-parallel: 8
-#      fail-fast: false
-#      matrix:
-#        os: [ ubuntu-latest ]
-#        python-version: [ '3.12', '3.11', '3.10', '3.9' ]
-#        pyarrow-version: [
-#          17.0.0,
-#          16.1.0,
-#          16.0.0,
-#          15.0.2,
-#          15.0.1,
-#          15.0.0,
-#          14.0.2,
-#          14.0.1,
-#          14.0.0,
-#          13.0.0,
-#          12.0.1,
-#          12.0.0,
-#          11.0.0,
-#          10.0.1,
-#          10.0.0,
-#          9.0.0,
-#          8.0.0,
-#          7.0.0,
-#          6.0.1,
-#          6.0.0,
-#          5.0.0,
-#        ]
-#
-#    steps:
-#      - name: Checkout
-#        uses: actions/checkout@v4
-#
-#      - name: Set up Python
-#        uses: actions/setup-python@v5
-#        with:
-#          python-version: ${{ matrix.python-version }}
-#
-#      - name: Install valid package version
-#        uses: ./
-#        with:
-#          package-name: 'pyarrow'
-#          package-version: ${{ matrix.pyarrow-version }}
-#          python-version: ${{ matrix.python-version }}
-#
-#      - name: Install packages
-#        run: |
-#          pip install coola pytest
-#
-#      - name: Run functional tests
-#        run: |
-#          python -m pytest tests/functional
-#
-#
-#  scikit-learn:
-#    runs-on: ${{ matrix.os }}
-#    timeout-minutes: 10
-#    strategy:
-#      max-parallel: 8
-#      fail-fast: false
-#      matrix:
-#        os: [ ubuntu-latest ]
-#        python-version: [ '3.12', '3.11', '3.10', '3.9' ]
-#        scikit-learn-version: [
-#          1.5.2,
-#          1.5.1,
-#          1.5.0,
-#          1.4.2,
-#          1.4.0,
-#          1.3.2,
-#          1.3.1,
-#          1.3.0,
-#          1.2.2,
-#          1.2.1,
-#          1.2.0,
-#          1.1.3,
-#          1.1.2,
-#          1.1.1,
-#          1.1.0,
-#          1.0.2,
-#          1.0.1,
-#          1.0.0,
-#        ]
-#
-#    steps:
-#      - name: Checkout
-#        uses: actions/checkout@v4
-#
-#      - name: Set up Python
-#        uses: actions/setup-python@v5
-#        with:
-#          python-version: ${{ matrix.python-version }}
-#
-#      - name: Install valid package version
-#        uses: ./
-#        with:
-#          package-name: 'scikit-learn'
-#          package-version: ${{ matrix.scikit-learn-version }}
-#          python-version: ${{ matrix.python-version }}
-#
-#      - name: Install packages
-#        run: |
-#          pip install coola pytest
-#
-#      - name: Run functional tests
-#        run: |
-#          python -m pytest tests/functional
-#
-#
-#  scipy:
-#    runs-on: ${{ matrix.os }}
-#    timeout-minutes: 10
-#    strategy:
-#      max-parallel: 8
-#      fail-fast: false
-#      matrix:
-#        os: [ ubuntu-latest ]
-#        python-version: [ '3.12', '3.11', '3.10', '3.9' ]
-#        scipy-version: [
-#          1.14.1,
-#          1.14.0,
-#          1.13.1,
-#          1.13.0,
-#          1.12.0,
-#          1.11.4,
-#          1.11.3,
-#          1.11.2,
-#          1.11.1,
-#          1.10.1,
-#          1.10.0,
-#          1.9.3,
-#          1.9.2,
-#          1.9.1,
-#          1.9.0,
-#          1.8.1,
-#          1.8.0,
-#          1.7.3,
-#          1.7.2,
-#          1.7.1,
-#          1.7.0,
-#          1.6.3,
-#          1.6.2,
-#          1.6.1,
-#          1.6.0,
-#        ]
-#
-#    steps:
-#      - name: Checkout
-#        uses: actions/checkout@v4
-#
-#      - name: Set up Python
-#        uses: actions/setup-python@v5
-#        with:
-#          python-version: ${{ matrix.python-version }}
-#
-#      - name: Install valid package version
-#        uses: ./
-#        with:
-#          package-name: 'scipy'
-#          package-version: ${{ matrix.scipy-version }}
-#          python-version: ${{ matrix.python-version }}
-#
-#      - name: Install packages
-#        run: |
-#          pip install coola pytest
-#
-#      - name: Run functional tests
-#        run: |
-#          python -m pytest tests/functional
-#
-#
-#  torch:
-#    runs-on: ${{ matrix.os }}
-#    timeout-minutes: 10
-#    strategy:
-#      max-parallel: 8
-#      fail-fast: false
-#      matrix:
-#        os: [ ubuntu-latest ]
-#        python-version: [ '3.12', '3.11', '3.10', '3.9' ]
-#        torch-version: [
-#          2.4.1,
-#          2.4.0,
-#          2.3.1,
-#          2.3.0,
-#          2.2.2,
-#          2.2.1,
-#          2.2.0,
-#          2.1.2,
-#          2.1.1,
-#          2.1.0,
-#          2.0.1,
-#          2.0.0,
-#          1.13.1,
-#          1.13.0,
-#          1.12.1,
-#          1.12.0,
-#          1.11.0,
-#          1.10.2,
-#          1.10.1,
-#          1.10.0,
-#          1.9.1,
-#          1.9.0,
-#        ]
-#
-#    steps:
-#      - name: Checkout
-#        uses: actions/checkout@v4
-#
-#      - name: Set up Python
-#        uses: actions/setup-python@v5
-#        with:
-#          python-version: ${{ matrix.python-version }}
-#
-#      - name: Install valid package version
-#        uses: ./
-#        with:
-#          package-name: 'torch'
-#          package-version: ${{ matrix.torch-version }}
-#          python-version: ${{ matrix.python-version }}
-#
-#      - name: Install packages
-#        run: |
-#          pip install coola pytest
-#
-#      - name: Run functional tests
-#        run: |
-#          python -m pytest tests/functional
-#
-#
-#  xarray:
-#    runs-on: ${{ matrix.os }}
-#    timeout-minutes: 10
-#    strategy:
-#      max-parallel: 8
-#      fail-fast: false
-#      matrix:
-#        os: [ ubuntu-latest ]
-#        python-version: [ '3.12', '3.11', '3.10', '3.9' ]
-#        xarray-version: [
-#          '2024.9.0',
-#          '2024.7.0',
-#          '2024.6.0',
-#          '2024.5.0',
-#          '2024.3.0',
-#          '2024.2.0',
-#          '2024.1.1',
-#          '2023.12.0',
-#          '2023.11.0',
-#          '2023.10.1',
-#          '2023.9.0',
-#          '2023.8.0',
-#          '2023.7.0',
-#          '2023.6.0',
-#          '2023.5.0',
-#          '2023.4.2',
-#          '2023.3.0',
-#          '2023.2.0',
-#          '2023.1.0',
-#          '2022.12.0',
-#          '2022.11.0',
-#          '2022.10.0',
-#          '2022.9.0',
-#          '2022.6.0',
-#          '2022.3.0',
-#        ]
-#
-#    steps:
-#      - name: Checkout
-#        uses: actions/checkout@v4
-#
-#      - name: Set up Python
-#        uses: actions/setup-python@v5
-#        with:
-#          python-version: ${{ matrix.python-version }}
-#
-#      - name: Install valid package version
-#        uses: ./
-#        with:
-#          package-name: 'xarray'
-#          package-version: ${{ matrix.xarray-version }}
-#          python-version: ${{ matrix.python-version }}
-#
-#      - name: Install packages
-#        run: |
-#          pip install coola pytest
-#
-#      - name: Run functional tests
-#        run: |
-#          python -m pytest tests/functional
+  xarray:
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 10
+    strategy:
+      max-parallel: 8
+      fail-fast: false
+      matrix:
+        os: [ ubuntu-latest ]
+        python-version: [ '3.12', '3.11', '3.10', '3.9' ]
+        xarray-version: [
+          '2024.9.0',
+          '2024.7.0',
+          '2024.6.0',
+          '2024.5.0',
+          '2024.3.0',
+          '2024.2.0',
+          '2024.1.1',
+          '2023.12.0',
+          '2023.11.0',
+          '2023.10.1',
+          '2023.9.0',
+          '2023.8.0',
+          '2023.7.0',
+          '2023.6.0',
+          '2023.5.0',
+          '2023.4.2',
+          '2023.3.0',
+          '2023.2.0',
+          '2023.1.0',
+          '2022.12.0',
+          '2022.11.0',
+          '2022.10.0',
+          '2022.9.0',
+          '2022.6.0',
+          '2022.3.0',
+        ]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install valid package version
+        uses: ./
+        with:
+          package-name: 'xarray'
+          package-version: ${{ matrix.xarray-version }}
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install packages
+        run: |
+          pip install coola pytest
+
+      - name: Run functional tests
+        run: |
+          python -m pytest tests/functional

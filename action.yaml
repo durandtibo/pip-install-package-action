@@ -37,7 +37,6 @@ runs:
         echo "cmd_prefix=${PREFIX}" >> $GITHUB_OUTPUT
 
     - name: echo output
-      id: find-poetry
       shell: bash
       run: | 
         echo ${{ steps.find-poetry.outputs.cmd_prefix }}

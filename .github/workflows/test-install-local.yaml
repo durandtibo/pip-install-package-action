@@ -116,6 +116,7 @@ jobs:
 
       - name: Set environment variable
         run: |
+          which poetry
           poetry env info --path
           echo $(poetry env info --path)
 #          source $(poetry env info --path)/bin/activate

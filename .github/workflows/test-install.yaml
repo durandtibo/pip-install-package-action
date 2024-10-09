@@ -65,7 +65,7 @@ jobs:
 
       - name: Install packages
         run: |
-          pip install coola pytest
+          pip install pytest
 
       - name: Run functional tests
         run: |
@@ -127,7 +127,7 @@ jobs:
 
       - name: Install packages
         run: |
-          pip install coola pytest
+          pip install pytest
 
       - name: Run functional tests
         run: |
@@ -194,7 +194,7 @@ jobs:
 
       - name: Install packages
         run: |
-          pip install coola pytest
+          pip install pytest
 
       - name: Run functional tests
         run: |
@@ -252,7 +252,7 @@ jobs:
 
       - name: Install packages
         run: |
-          pip install coola pytest
+          pip install pytest
 
       - name: Run functional tests
         run: |
@@ -302,7 +302,7 @@ jobs:
 
       - name: Install packages
         run: |
-          pip install coola pytest
+          pip install pytest
 
       - name: Run functional tests
         run: |
@@ -357,7 +357,7 @@ jobs:
 
       - name: Install packages
         run: |
-          pip install coola pytest
+          pip install pytest
 
       - name: Run functional tests
         run: |
@@ -419,7 +419,7 @@ jobs:
 
       - name: Install packages
         run: |
-          pip install coola pytest
+          pip install pytest
 
       - name: Run functional tests
         run: |
@@ -478,7 +478,7 @@ jobs:
 
       - name: Install packages
         run: |
-          pip install coola pytest
+          pip install pytest
 
       - name: Run functional tests
         run: |
@@ -544,7 +544,7 @@ jobs:
 
       - name: Install packages
         run: |
-          pip install coola pytest
+          pip install pytest
 
       - name: Run functional tests
         run: |
@@ -605,7 +605,7 @@ jobs:
 
       - name: Install packages
         run: |
-          pip install coola pytest
+          pip install pytest
 
       - name: Run functional tests
         run: |

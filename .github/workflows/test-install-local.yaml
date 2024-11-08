@@ -398,6 +398,7 @@ jobs:
         os: [ ubuntu-latest ]
         python-version: [ '3.12', '3.11', '3.10', '3.9' ]
         torch-version: [
+          2.5.1,
           2.5.0,
           2.4.1,
           2.4.0,
@@ -455,6 +456,7 @@ jobs:
         os: [ ubuntu-latest ]
         python-version: [ '3.12', '3.11', '3.10', '3.9' ]
         torch-version: [
+          2.5.1,
           2.5.0,
           2.4.1,
           2.4.0,

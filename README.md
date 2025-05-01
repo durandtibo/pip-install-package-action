@@ -38,7 +38,7 @@ the latest release notes.
 
 ```yaml
   - name: Install valid package version
-    uses: durandtibo/pip-install-package@v0.2.2
+    uses: durandtibo/pip-install-package@v0.3.2
     with:
       package-name: 'numpy'
       package-version: 2.0.2

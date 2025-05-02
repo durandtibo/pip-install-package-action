@@ -35,7 +35,7 @@ jobs:
 
       - name: Install packages
         run: |
-          make install-all
+          make install-all-extras
 
       - name: Show installed packages
         run: |

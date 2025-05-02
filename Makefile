@@ -22,6 +22,10 @@ config-poetry :
 install :
 	poetry install --no-interaction
 
+.PHONY : install-all-extras
+install-all-extras :
+	poetry install --no-interaction --all-extras
+
 .PHONY : install-all
 install-all :
 	poetry install --no-interaction --all-extras --with functional

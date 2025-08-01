@@ -29,7 +29,7 @@ runs:
       shell: bash
       run: |
         which pip
-        pip install "feu[cli]>=0.3.4a0"
+        pip install "feu[cli]>=0.3.4"
 
     - name: Find closest valid version
       id: find-version

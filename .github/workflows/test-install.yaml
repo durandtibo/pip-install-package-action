@@ -35,7 +35,7 @@ jobs:
           python-version: ${{ matrix.python-version }}
 
       - name: Install valid package version
-        uses: durandtibo/pip-install-package-action@v0.3.2
+        uses: durandtibo/pip-install-package-action@v0.3.3
         with:
           package-name: 'jax'
           package-version: ${{ matrix.jax-version }}
@@ -84,7 +84,7 @@ jobs:
           python-version: ${{ matrix.python-version }}
 
       - name: Install valid package version
-        uses: durandtibo/pip-install-package-action@v0.3.2
+        uses: durandtibo/pip-install-package-action@v0.3.3
         with:
           package-name: 'numpy'
           package-version: ${{ matrix.numpy-version }}
@@ -130,7 +130,7 @@ jobs:
           python-version: ${{ matrix.python-version }}
 
       - name: Install valid package version
-        uses: durandtibo/pip-install-package-action@v0.3.2
+        uses: durandtibo/pip-install-package-action@v0.3.3
         with:
           package-name: 'pandas'
           package-version: ${{ matrix.pandas-version }}
@@ -184,7 +184,7 @@ jobs:
           python-version: ${{ matrix.python-version }}
 
       - name: Install valid package version
-        uses: durandtibo/pip-install-package-action@v0.3.2
+        uses: durandtibo/pip-install-package-action@v0.3.3
         with:
           package-name: 'pyarrow'
           package-version: ${{ matrix.pyarrow-version }}
@@ -230,7 +230,7 @@ jobs:
           python-version: ${{ matrix.python-version }}
 
       - name: Install valid package version
-        uses: durandtibo/pip-install-package-action@v0.3.2
+        uses: durandtibo/pip-install-package-action@v0.3.3
         with:
           package-name: 'requests'
           package-version: ${{ matrix.requests-version }}
@@ -276,7 +276,7 @@ jobs:
           python-version: ${{ matrix.python-version }}
 
       - name: Install valid package version
-        uses: durandtibo/pip-install-package-action@v0.3.2
+        uses: durandtibo/pip-install-package-action@v0.3.3
         with:
           package-name: 'scikit-learn'
           package-version: ${{ matrix.scikit-learn-version }}
@@ -325,7 +325,7 @@ jobs:
           python-version: ${{ matrix.python-version }}
 
       - name: Install valid package version
-        uses: durandtibo/pip-install-package-action@v0.3.2
+        uses: durandtibo/pip-install-package-action@v0.3.3
         with:
           package-name: 'scipy'
           package-version: ${{ matrix.scipy-version }}
@@ -370,7 +370,7 @@ jobs:
           python-version: ${{ matrix.python-version }}
 
       - name: Install valid package version
-        uses: durandtibo/pip-install-package-action@v0.3.2
+        uses: durandtibo/pip-install-package-action@v0.3.3
         with:
           package-name: 'torch'
           package-version: ${{ matrix.torch-version }}
@@ -422,7 +422,7 @@ jobs:
           echo $(poetry run poetry env info --path)/bin >> $GITHUB_PATH
 
       - name: Install valid package version
-        uses: durandtibo/pip-install-package-action@v0.3.2
+        uses: durandtibo/pip-install-package-action@v0.3.3
         with:
           package-name: 'torch'
           package-version: ${{ matrix.torch-version }}
@@ -469,7 +469,7 @@ jobs:
           python-version: ${{ matrix.python-version }}
 
       - name: Install valid package version
-        uses: durandtibo/pip-install-package-action@v0.3.2
+        uses: durandtibo/pip-install-package-action@v0.3.3
         with:
           package-name: 'xarray'
           package-version: ${{ matrix.xarray-version }}

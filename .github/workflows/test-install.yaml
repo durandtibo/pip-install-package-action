@@ -7,6 +7,42 @@ permissions:
   contents: read
 
 jobs:
+  click:
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 10
+    strategy:
+      max-parallel: 8
+      fail-fast: false
+      matrix:
+        os: [ ubuntu-latest ]
+        python-version: [ '3.13', '3.12', '3.11', '3.10', '3.9' ]
+        click-version: [ '8.2.1', '8.1.8', '8.1.0' ]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install valid package version
+        uses: durandtibo/pip-install-package-action@v0.3.3
+        with:
+          package-name: 'click'
+          package-version: ${{ matrix.click-version }}
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install packages
+        run: |
+          pip install pytest
+
+      - name: Run functional tests
+        run: |
+          python -m pytest tests/functional
+
+
   jax:
     runs-on: ${{ matrix.os }}
     timeout-minutes: 10
@@ -69,7 +105,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Set up Python
         uses: actions/setup-python@v5

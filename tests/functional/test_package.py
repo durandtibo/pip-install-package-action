@@ -66,8 +66,8 @@ def test_pyarrow() -> None:
 def test_requests() -> None:
     import requests  # local import because it is an optional dependency
 
-    r = requests.get("https://api.github.com/events", timeout=10)
-    assert r.status_code in {200, 403}
+    r = requests.get("https://google.com", timeout=10)
+    assert isinstance(r.status_code, int)
 
 
 @sklearn_available

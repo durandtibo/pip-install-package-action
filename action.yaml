@@ -47,4 +47,4 @@ runs:
       shell: bash
       run: |
         python -m feu install --installer-name=pip --installer-args=${{ inputs.pip-args }} --pkg-name=${{ inputs.package-name }} --pkg-version=${{ steps.find-version.outputs.closest-valid-version }}
-    
+

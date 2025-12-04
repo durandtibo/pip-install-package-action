@@ -2,6 +2,7 @@ name: 'pip-install-package'
 description: |
   'Find the closest valid version given the package name and target version,
   and python version, and install it by using pip'
+author: "Thibaut Durand"
 branding:
   icon: 'box'
   color: 'purple'

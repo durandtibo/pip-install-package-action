@@ -39,7 +39,7 @@ black = ">=25.9"
 coverage = { extras = ["toml"], version = "^7.12" }
 docformatter = { extras = ["tomli"], version = "^1.7", python = "<3.14" }
 feu = { extras = ["cli"], version = ">=0.4.2,<1.0" }
-pre-commit = "^4.4"
+pre-commit = "^4.5"
 pygments = "^2.19"
 pytest = "^9.0"
 pytest-cov = "^6.3"

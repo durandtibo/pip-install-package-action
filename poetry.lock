@@ -379,19 +379,19 @@ test = ["pytest (>=6)"]
 
 [[package]]
 name = "feu"
-version = "0.6.1"
+version = "0.6.2"
 description = "A lightweight Python library for managing packages and versions across different Python environments"
 optional = false
 python-versions = ">=3.10"
 groups = ["dev"]
 files = [
-    {file = "feu-0.6.1-py3-none-any.whl", hash = "sha256:508dcacbffad921ceb55dd24f73370800ac24329e40afda03e1bbb1be6879317"},
-    {file = "feu-0.6.1.tar.gz", hash = "sha256:cf11ee0aca58281626d3a7523a2dcfbab122f023b3b9b71169f6dd4df6a54ce0"},
+    {file = "feu-0.6.2-py3-none-any.whl", hash = "sha256:c2b7f00d8b3239e3af7af14dc09eacc677a722843ea66c9d72ffb08c27f10502"},
+    {file = "feu-0.6.2.tar.gz", hash = "sha256:9307aa145278ffc3a2ee7cafb349cd6852a59406fe5ae6b354b54bc85a1078db"},
 ]
 
 [package.dependencies]
 click = {version = ">=8.1,<9.0", optional = true, markers = "extra == \"cli\""}
-packaging = ">=21.0,<26.0"
+packaging = ">=21.0,<27.0"
 typing-extensions = {version = ">=4.10,<5.0", markers = "python_version < \"3.11\""}
 
 [package.extras]

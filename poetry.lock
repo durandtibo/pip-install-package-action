@@ -377,14 +377,14 @@ test = ["pytest (>=6)"]
 
 [[package]]
 name = "feu"
-version = "0.7.1"
+version = "0.7.3"
 description = "A lightweight Python library for managing packages and versions across different Python environments"
 optional = false
 python-versions = ">=3.10"
 groups = ["dev"]
 files = [
-    {file = "feu-0.7.1-py3-none-any.whl", hash = "sha256:ed3f6259677167aa7230f5a88b3d6bb4704ecaedf1160f23e52b2871373a7ae3"},
-    {file = "feu-0.7.1.tar.gz", hash = "sha256:48a7494df00f56ee18bcb300305493c261ee22b1d96a7be5ecb1189e8e39224a"},
+    {file = "feu-0.7.3-py3-none-any.whl", hash = "sha256:43e0f62f68a2c3b9b15dbe25a8b0b71b86cede8d55800d3fad845cb5c4bc871d"},
+    {file = "feu-0.7.3.tar.gz", hash = "sha256:8add8e39398401e311dc7efe330c9238a4efdbe6f11edc521dd3e0d8ce6fd4b3"},
 ]
 
 [package.dependencies]
